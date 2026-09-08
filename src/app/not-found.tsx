@@ -1,0 +1,1 @@
+import Link from "next/link";export default function NotFound(){return <main className="shell" style={{paddingTop:"7rem",minHeight:"50vh"}}><p className="eyebrow">404</p><h1 className="display">This page isn&apos;t here.</h1><p>It may have moved or is not published yet.</p><Link href="/" className="button button-primary">Back to home</Link></main>}

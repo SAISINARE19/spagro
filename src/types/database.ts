@@ -1,0 +1,6 @@
+export type Category = { id: string; name: string; slug: string; description: string | null; image_url: string | null; active: boolean };
+export type ProductImage = { id: string; image_url: string; image_key?: string | null; alt_text: string | null; sort_order: number };
+export type Product = { id: string; name: string; slug: string; short_description: string | null; description: string | null; features: string[]; applications: string[]; specifications: Record<string, string>; featured: boolean; published: boolean; category: Pick<Category, "name" | "slug"> | null; product_images: ProductImage[] };
+export type LaserProject = { id: string; title: string; slug: string; description: string | null; material: string | null; featured: boolean; published: boolean; laser_categories: { name: string; slug: string } | null; laser_project_images: ProductImage[] };
+export type GalleryItem = { id: string; title: string | null; category: string; description: string | null; image_url: string; alt_text: string | null };
+export type SiteSettings = { business_name: string; phone: string | null; whatsapp: string | null; email: string | null; address: string; business_hours: string | null; maps_url: string | null; hero_heading: string; hero_subtitle: string; about_text: string | null; footer_text: string | null };

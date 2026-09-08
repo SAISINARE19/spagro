@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#e6ece7"/>
+      <stop offset="100%" stop-color="#c7d2c3"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="#f3f5f2"/>
+  <rect x="80" y="80" width="1040" height="740" rx="22" fill="url(#g2)"/>
+  <rect x="170" y="150" width="530" height="450" rx="18" fill="#f9faf8" opacity="0.72"/>
+  <path d="M250 610 L670 610 L660 730 L260 730 Z" fill="#1f312a" opacity="0.8"/>
+  <path d="M760 190 L1090 190 L1030 700 L760 700 Z" fill="#2d4a3d" opacity="0.86"/>
+  <path d="M770 280 L1040 280 L970 620 L770 620 Z" fill="#e4e9e1" opacity="0.9"/>
+  <text x="110" y="820" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" fill="#1d261f">Precision laser-cut metal component</text>
+</svg>

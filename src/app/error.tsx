@@ -1,0 +1,1 @@
+"use client";import Link from "next/link";export default function Error(){return <main className="shell" style={{paddingTop:"6rem",minHeight:"50vh"}}><p className="eyebrow">Something went wrong</p><h1 className="display">Please try again.</h1><p>We couldn&apos;t load this page at the moment.</p><Link className="button button-primary" href="/">Return home</Link></main>}

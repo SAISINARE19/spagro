@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#f1f4ef"/>
+  <rect x="80" y="80" width="1040" height="740" rx="20" fill="#dfe7df"/>
+  <path d="M170 650 L1090 650 L940 760 L250 760 Z" fill="#1d2a25" opacity="0.8"/>
+  <g opacity="0.9">
+    <circle cx="350" cy="360" r="160" fill="#f8f9f7"/>
+    <circle cx="350" cy="360" r="100" fill="#8aa88d"/>
+    <circle cx="350" cy="360" r="50" fill="#1d2a25"/>
+    <path d="M660 260 L1000 260 L930 620 L700 620 Z" fill="#d8ded6"/>
+    <path d="M760 330 L910 330 L890 560 L780 560 Z" fill="#24352d"/>
+  </g>
+  <text x="120" y="820" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" fill="#1b241d">Laser cutting pattern and finished parts</text>
+</svg>
