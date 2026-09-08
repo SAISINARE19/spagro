@@ -38,10 +38,21 @@ export async function signIn(formData: FormData) {
   const auth = createAuthActions({ ...options, cookies: cookieStore });
   const { error } = await auth.signInWithPassword({ email: text(formData, "email"), password: text(formData, "password") });
   if (error) redirect("/admin?error=invalid");
+
   const db = await createServerInsforgeClient();
-  const { data: { user } } = db ? await db.auth.getCurrentUser() : { data: { user: null } };
-  const { data: profile } = user && db ? await db.database.from("profiles").select("role").eq("id", user.id).maybeSingle() : { data: null };
-  if (!user || profile?.role !== "admin") {
+  if (!db) {
+    await auth.signOut();
+    redirect("/admin?error=config");
+  }
+
+  const { data: { user } } = await db.auth.getCurrentUser();
+  if (!user) {
+    await auth.signOut();
+    redirect("/admin?error=access");
+  }
+
+  const { data: profile } = await db.database.from("profiles").select("role").eq("id", user.id).maybeSingle();
+  if (profile?.role !== "admin") {
     await auth.signOut();
     redirect("/admin?error=access");
   }

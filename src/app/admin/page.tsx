@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { signIn, signOut } from "./actions";
 import { createServerInsforgeClient } from "@/lib/insforge/server";
 
@@ -7,10 +8,15 @@ export const metadata = { title: "Admin" };
 export default async function Admin({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
 	const { error } = await searchParams;
 	const db = await createServerInsforgeClient();
-	const { data: { user } } = db ? await db.auth.getCurrentUser() : { data: { user: null } };
-	const { data: profile } = user && db ? await db.database.from("profiles").select("role").eq("id", user.id).maybeSingle() : { data: null };
+	if (!db) {
+		return notFound();
+	}
 
-	if (!user || profile?.role !== "admin") return <Login error={error} />;
+	const { data: { user } } = await db.auth.getCurrentUser();
+	if (!user) return <Login error={error} />;
+
+	const { data: profile } = await db.database.from("profiles").select("role").eq("id", user.id).maybeSingle();
+	if (profile?.role !== "admin") return <Login error={error} />;
 
 	const tables = ["products", "categories", "laser_projects", "gallery", "enquiries"] as const;
 	const [results, { data: enquiries }] = await Promise.all([
